@@ -1,0 +1,754 @@
+/* ============================================
+   ROOT LEVEL - Variáveis CSS
+   ============================================ */
+:root {
+  /* Cores - Paleta Eco-Friendly */
+  --primary: #10b981;
+  --secondary: #059669;
+  --accent: #34d399;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b8216;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --bg: #f3f4f6;
+  --white: #ffffff;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 3rem;
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+  background-color: var(--white);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+header .container {
+  text-align: center;
+}
+
+header h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+  font-weight: bold;
+}
+
+header .lead {
+  color: var(--text-light);
+  font-size: 1.0625rem;
+}
+
+/* ============================================
+   FORM - Formulário Principal
+   ============================================ */
+main {
+  padding: var(--spacing-lg) 0;
+}
+
+#calculator-form {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+  color: var(--text);
+}
+
+.field {
+  margin-bottom: var(--spacing-lg);
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text);
+}
+
+.field input[type="text"],
+.field input[type="number"] {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Ensure origem/destino/distancia share the same style explicitly */
+input#origem,
+input#destino,
+input#distancia {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.field input[type="text"]:not(:disabled):not([readonly]):focus,
+.field input[type="number"]:not(:disabled):not([readonly]):focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+}
+
+/* Disabled / readonly appearance (input starts readonly/disabled)
+   Specifically style #distancia, but also allow other inputs if needed. */
+input#distancia:disabled,
+input#distancia[readonly],
+.field input[type="text"]:disabled,
+.field input[type="number"]:disabled {
+  background-color: #e5e7eb;
+  color: var(--text-light);
+  cursor: not-allowed;
+  border: 1px solid #d1d5db;
+  box-shadow: none;
+}
+
+.field-helper {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-top: var(--spacing-sm);
+}
+
+/* ============================================
+   CHECKBOX
+   ============================================ */
+.field.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.field.checkbox input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+.field.checkbox label {
+  margin: 0;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+/* ============================================
+   TRANSPORT MODE GRID
+   ============================================ */
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.transport-grid .option {
+  position: relative;
+}
+
+.transport-grid input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.transport-grid label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  border: 2px solid #d1d5db;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  margin: 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+.transport-grid label .emoji {
+  display: block;
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.transport-grid label .transport-name {
+  display: block;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.transport-grid label:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.transport-grid input[type="radio"]:checked + label {
+  border-color: var(--primary);
+  border-width: 2px;
+  background-color: #d1fae5;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* ============================================
+   BUTTON
+   ============================================ */
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+button[type="submit"],
+button[type="button"] {
+  flex: 1;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+button[type="submit"]:active,
+button[type="button"]:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: #d1d5db;
+  color: var(--text-light);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   SECTIONS - Resultados, Comparação, Créditos
+   By default these sections are hidden; JS should toggle the
+   `.show` class on the section when content is available.
+   ============================================ */
+#resultados,
+#comparacao,
+#creditos {
+  display: none;
+}
+
+/* When visible, apply card styling */
+#resultados.show,
+#comparacao.show,
+#creditos.show {
+  display: block;
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xl);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+  min-height: 100px;
+}
+
+#result-content,
+#comparison-content,
+#credit-content {
+  min-height: 50px;
+}
+
+/* ============================================
+   SPINNER - Animação de Carregamento
+   ============================================ */
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background-color: var(--white);
+  border-top: 1px solid #e5e7eb;
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE - Media Queries
+   ============================================ */
+@media (max-width: 767px) {
+  /* Ajustes mobile */
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #calculator-form {
+    padding: var(--spacing-lg);
+  }
+
+  .transport-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .transport-grid label {
+    padding: var(--spacing-md);
+    font-size: 0.875rem;
+  }
+
+  .transport-grid label .emoji {
+    font-size: 2rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  button[type="submit"],
+  button[type="button"] {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Ajustes desktop */
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+
+  .transport-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #calculator-form {
+    max-width: 700px;
+  }
+
+  #resultados,
+  #comparacao,
+  #creditos {
+    max-width: 700px;
+  }
+}
+
+/* ============================================
+   RESULT CARDS - Styling for output sections
+   ============================================ */
+
+#result-content,
+#comparison-content,
+#credit-content {
+  width: 100%;
+  margin-top: var(--spacing-md);
+  animation: fadeUp 0.28s ease both;
+}
+
+/* Shared card styling */
+.results__card,
+.comparison__item,
+.credits__card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(31, 41, 55, 0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* Hover lift effect */
+.results__card:hover,
+.comparison__item:hover,
+.credits__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* RESULTS - Grid layout */
+#result-content .results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  #result-content .results {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Route card styling */
+.results__card--route {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-xs) / 1.5);
+  padding: var(--spacing-lg);
+}
+
+.results__card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.results__card-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.results__card-sub {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* Distance card */
+.results__card--distance {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.06), rgba(16, 185, 129, 0.03));
+  border: 1px solid rgba(16, 185, 129, 0.12);
+}
+
+.results__card--distance .results__card-value {
+  color: var(--primary);
+}
+
+/* Emission card */
+.results__card--emission {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(52, 211, 153, 0.04));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.results__card--emission .results__card-value {
+  color: var(--primary);
+  font-size: 1.6rem;
+}
+
+/* Transport card */
+.results__card--transport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-sm);
+}
+
+.results__card--transport .results__card-value {
+  font-size: 1.8rem;
+  gap: var(--spacing-xs);
+}
+
+/* Savings card */
+.results__card--savings {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(52, 211, 153, 0.08));
+  border: 2px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-xs);
+}
+
+.results__card--savings .results__card-value {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+/* COMPARISON - Grid for all modes */
+#comparison-content .comparison {
+  display: grid;
+  gap: var(--spacing-sm);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  #comparison-content .comparison {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  #comparison-content .comparison {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.comparison__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  cursor: default;
+  position: relative;
+}
+
+.comparison__mode {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.comparison__mode::before {
+  content: '';
+  display: block;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.comparison__emission {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-top: var(--spacing-xs);
+}
+
+.comparison__percent {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  background: var(--bg);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Selected comparison item */
+.comparison__item--selected {
+  border: 2px solid var(--primary);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(52, 211, 153, 0.04));
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.comparison__item--selected .comparison__mode {
+  color: var(--primary);
+}
+
+/* CARBON CREDITS - Grid layout */
+#credit-content .credits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+#credit-content .credits__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  #credit-content .credits__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.results__card--credits,
+.results__card--price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(59, 130, 22, 0.05), rgba(16, 185, 129, 0.03));
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.results__card--credits .results__card-value,
+.results__card--price .results__card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--info);
+}
+
+.results__card--price .results__card-value {
+  color: var(--primary);
+}
+
+#credit-content .credits__info {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.03), rgba(16, 185, 129, 0.02));
+  padding: var(--spacing-md);
+  border-radius: var(--radius);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  line-height: 1.6;
+}
+
+#credit-content .credits__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.btn-compensate {
+  flex: 1;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-compensate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.btn-compensate:active {
+  transform: translateY(-1px);
+}
+
+/* Animation for fade-in */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure content divs respect hidden state */
+#result-content.hidden,
+#comparison-content.hidden,
+#credit-content.hidden {
+  display: none !important;
+}

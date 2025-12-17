@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Calculadora de emissão de CO₂</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1>🌱 Calculadora de emissão de CO<sub>2</sub></h1>
+			<p class="lead">Calcule estimativas de emissão de CO₂ por viagem entre duas cidades.</p>
+		</div>
+	</header>
+
+	<main>
+		<section aria-labelledby="calculator-title">
+			<div class="container">
+				<h2 id="calculator-title" class="visually-hidden">Calculadora</h2>
+				<form id="calculator-form" autocomplete="on">
+					<fieldset>
+						<legend class="visually-hidden">Dados da viagem</legend>
+
+						<div class="field">
+							<label for="origem">Origem</label>
+							<input id="origem" name="origem" type="text" list="city-list" placeholder="Cidade de origem" />
+						</div>
+
+						<div class="field">
+							<label for="destino">Destino</label>
+							<input id="destino" name="destino" type="text" list="city-list" placeholder="Cidade de destino" />
+						</div>
+
+						<datalist id="city-list">
+							<!-- Opções dinâmicas a partir de `js/routes-data.js` -->
+						</datalist>
+
+						<div class="field">
+							<label for="distancia">Distância (km)</label>
+							<input id="distancia" name="distancia" type="number" readonly step="0.1" />
+						</div>
+
+						<div class="field checkbox">
+							<input id="manual" name="manual" type="checkbox" />
+							<label for="manual">Inserir distância manualmente</label>
+						</div>
+
+						<fieldset aria-label="Meio de transporte" class="transport-grid">
+							<legend>Meio de transporte</legend>
+
+							<div class="option">
+								<input type="radio" id="transport-bicicleta" name="transport" value="bicicleta">
+								<label for="transport-bicicleta"><span class="emoji">🚲</span><span class="transport-name">bicicleta</span></label>
+							</div>
+
+							<div class="option">
+								<input type="radio" id="transport-carro" name="transport" value="carro" checked>
+								<label for="transport-carro"><span class="emoji">🚗</span><span class="transport-name">carro</span></label>
+							</div>
+
+							<div class="option">
+								<input type="radio" id="transport-onibus" name="transport" value="onibus">
+								<label for="transport-onibus"><span class="emoji">🚌</span><span class="transport-name">ônibus</span></label>
+							</div>
+
+							<div class="option">
+								<input type="radio" id="transport-caminhao" name="transport" value="caminhao">
+								<label for="transport-caminhao"><span class="emoji">🚚</span><span class="transport-name">caminhão</span></label>
+							</div>
+
+						</fieldset>
+
+						<div class="actions">
+							<button type="submit">Calcular Emissão</button>
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+		</section>
+
+		<section id="resultados" aria-labelledby="resultados-title">
+			<div id="result-content" class="hidden"></div>
+		</section>
+
+		<section id="comparacao" aria-labelledby="comparacao-title">
+			<div id="comparison-content" class="hidden"></div>
+		</section>
+
+		<section id="creditos" aria-labelledby="creditos-title">
+			<div id="credit-content" class="hidden"></div>
+		</section>
+
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>Desenvolvido com ❤️ por Wellingthon Schuh | Projeto Github Copilot</p>
+		</div>
+	</footer>
+
+	<script src="js/routes-data.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/calculator.js"></script>
+	<script src="js/ui.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
